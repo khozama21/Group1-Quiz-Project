@@ -203,17 +203,6 @@ body {
     width: 1000px;
     margin-left: 250px;
 }
-#result #english-result #english-q5{
-    width: 1000px;
-    height: 535px;
-    margin-left: 250px;
-    font-size: 20px;
-    border-radius: 10px;
-    background-color: rgba(193, 195, 252, 0.2);
-    margin-top: 60px;
-    padding-left: 10px;
-    padding-top: 10px;
-}
 #result #english-result #english-q5 .english-answers{
     border-radius: 5px;
     margin-top: 5px;
