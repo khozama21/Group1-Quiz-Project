@@ -237,10 +237,17 @@ body{
     border-radius: 15px;
     width: 65px;
     margin: 20px 0 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+}
+.onSubmit:hover{
+    transform: scale(1.05);
+    background-color: #4a54f1;
 }
 .test-page .sure{
     position: absolute;
-    z-index: 99;
+    z-index: 10;
     width: 50%;
     height: 50%;
     top: 50%;
@@ -256,11 +263,16 @@ body{
     color: white;
     font-size: 30px;
     font-weight: 800;
-    
 }
+
 .test-page .sure .main-text{
     margin-top: 10%;
-    margin-bottom: 18%;
+    margin-bottom: 5%;
+}
+.test-page .sure .secondary-text{
+    font-size: 16px;
+    margin-bottom: 50px;
+    font-weight: 400;
 }
 .test-page .sure .choose{
     display: flex;
@@ -275,6 +287,10 @@ body{
     cursor: pointer;
     transition: ease 0.3s;
 }
+.test-page .sure .choose .yes a{
+text-decoration: none;
+color: white;
+}
 
 .test-page .sure .choose .no{
     border: 1px solid white;
@@ -284,6 +300,24 @@ body{
     transition: ease 0.3s;
 }
 .test-page .sure .choose .yes:hover,
-.test-page .sure .choose .no:hover{
+.test-page .sure .choose .no:hover,
+.test-page .sure .choose .yes a:hover,
+.test-page .sure .choose .yes a:focus{
 color: #4a54f1;
+}
+.popme{
+    display: flex !important ;
+}
+@media(max-width:850px) {
+    .test-page .sure{
+        width: 75%;
+    }
+}
+@media(max-width:500px) {
+    .test-page .sure{
+        width: 92%;
+    }
+    .test-page .sure .main-text {
+        margin-top: 20%;
+    }
 }
