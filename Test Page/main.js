@@ -6,11 +6,15 @@ let nexButton=document.querySelector(".after");
 let beforeButton=document.querySelector(".before");
 let dots=document.querySelector(".dots")
 let timer=document.querySelector(".timer span");
-let submit=document.querySelector(".onSubmit")
+let submit=document.querySelector(".onSubmit");
 let points=0;
 let active=0;
-var path=Number(window.localStorage.getItem("myPath"))
+var path=Number(window.localStorage.getItem("myPath"));
 var myAnswer;
+let sure=document.querySelector(".sure")
+let yes=document.querySelector(".yes")
+let no=document.querySelector(".no")
+
 //functions
 function onStart(){
     if(path==1){
@@ -150,3 +154,9 @@ beforeButton.addEventListener("click",()=>{
     })
     let myLis = [].slice.call(dots.children);
     myLis.forEach(ele=>ele.addEventListener("click",selectedLi));
+submit.addEventListener("click",()=>{
+sure.classList.add("popme");
+})
+no.addEventListener("click",()=>{
+    sure.classList.remove("popme");
+});
