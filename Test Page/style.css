@@ -103,10 +103,20 @@ body{
 .test-container .content .controls .before{
     color: #9da3fb;
     font-size: 18px;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+.test-container .content .controls .before:hover{
+    color: #4a54f1;
 }
 .test-container .content .controls .after{
     color: #9da3fb;
     font-size: 18px;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+.test-container .content .controls .after:hover{
+    color: #4a54f1;
 }
 .test-container .content .controls .dots{
     display: flex;
@@ -120,6 +130,10 @@ body{
     border: 1px solid #9da3fb;
     border-radius: 50%;
     margin: 0 5px;
+    cursor: pointer;
+}
+.test-container .content .controls .dots .dot:hover{
+    border: 1px solid #4a54f1;
 }
 @media (max-width: 1000px){
     .container{

@@ -9,9 +9,10 @@ let questions3=document.querySelectorAll(".path3 .question-container");
 let nexButton=document.querySelector(".after");
 let beforeButton=document.querySelector(".before");
 let dots=document.querySelector(".dots")
-let points;
+let points=0;
 let path=1;
 let active=0;
+var myAnswer;
 
 //functions
 function onStart(){
@@ -27,8 +28,9 @@ myLi.classList.add("dot")
 myLi.classList.add(`dot${i+1}`)
 dots.appendChild(myLi);
 }
-questions1[0].classList.remove("hide")
-questions1[0].classList.add("show")
+questions1[active].classList.remove("hide")
+questions1[active].classList.add("show")
+myAnswer = [].slice.call(questions1[active].children[1].children);
 }else if(path==2){
     document.querySelector(".path1").classList.add("hide");
     document.querySelector(".path2").classList.add("show");
@@ -57,13 +59,17 @@ questions2[0].classList.add("show")
         }
         questions3[0].classList.remove("hide")
         questions3[0].classList.add("show")
+        
     }
 }
 
-
+function activePage(){
+active=3
+}
 //add events
 onStart();
-var myAnswer = [].slice.call(questions1[0].children[1].children);
+activePage();
+
 myAnswer.forEach(e => e.addEventListener("click",function(){
     for(i=0;i<myAnswer.length;i++){
         myAnswer[i].classList.remove("colorIt")
@@ -71,22 +77,4 @@ myAnswer.forEach(e => e.addEventListener("click",function(){
     }
     this.classList.add("colorIt")
     this.classList.add("selected")
-}))
-//.forEach(e=>e.addEventListener("click",function(){
-//     console.log(this)
-// }))
-// questions1[0].children[1].children[1].addEventListener("click",function(){
-//     console.log("hi hi");
-// },{once:true})
-// questions1[1].children[1].children[0].addEventListener("click",function(){
-//     console.log("hi hi");
-// })
-// questions1[2].children[1].children[2].addEventListener("click",function(){
-//     console.log("hi hi");
-// })
-// questions1[3].children[1].children[0].addEventListener("click",function(){
-//     console.log("hi hi");
-// })
-// questions1[4].children[1].children[3].addEventListener("click",function(){
-//     console.log("hi hi");
-// })
+}));
