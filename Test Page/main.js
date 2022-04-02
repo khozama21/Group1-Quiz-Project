@@ -13,7 +13,6 @@ let points=0;
 let path=1;
 let active=0;
 var myAnswer;
-
 //functions
 function onStart(){
     if(path==1){
@@ -59,17 +58,49 @@ questions2[0].classList.add("show")
         }
         questions3[0].classList.remove("hide")
         questions3[0].classList.add("show")
-        
     }
 }
 
-function activePage(){
-active=3
+function addActive(){
+if(path==1 || path==2){
+if(active==4){
+    active=0
+}else{active++}}
+if(path==3){
+    if(active==9){
+        active=0
+    }else{active++}
 }
+}
+function decreaseActive(){
+    if(path==1 || path==2){
+    if(active==0){
+        active=4
+    }else{active--}}
+    if(path==3){
+        if(active==0){
+            active=9
+        }else{active--}
+    }
+    }
+   function activePage(){
+       if(path==1){
+           for(i=0;i<questions1.length;i++){
+           questions1[i].classList.remove("show")
+           questions1[i].classList.add("hide")
+        }
+        questions1[active].classList.add("show")
+        questions1[active].classList.remove("hide")
+        myAnswer = [].slice.call(questions1[active].children[1].children);
+        myRefresh()
+        console.log(active)
+   }else if(path==2){
+    console.log("22")
+   }
+ }
 //add events
 onStart();
-activePage();
-
+function myRefresh(){
 myAnswer.forEach(e => e.addEventListener("click",function(){
     for(i=0;i<myAnswer.length;i++){
         myAnswer[i].classList.remove("colorIt")
@@ -77,4 +108,15 @@ myAnswer.forEach(e => e.addEventListener("click",function(){
     }
     this.classList.add("colorIt")
     this.classList.add("selected")
+    dots.children[active].classList.add("answered-dot")
 }));
+}
+myRefresh()
+nexButton.addEventListener("click",()=>{
+addActive()
+activePage()
+})
+beforeButton.addEventListener("click",()=>{
+    decreaseActive()
+    activePage()
+    })
