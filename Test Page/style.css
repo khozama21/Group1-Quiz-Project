@@ -13,6 +13,7 @@ body{
     background-size: cover;
     width: 100%;
     height: 100vh;
+    position: relative;
 }
 .container{
     padding: 0 15%;
@@ -23,6 +24,7 @@ body{
     background-image: url(picture/my\ art.png);
     /* background-size: contain;
     background-repeat: no-repeat; */
+    border-radius: 25px;
     background-size: cover;
     height: auto;
     box-shadow: -2px 2px 6px 6px #eceffe;
@@ -40,6 +42,13 @@ body{
     flex-direction: column;
     align-items: center;
     margin-top: 150px;
+    width: 100%;
+}
+.question-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .test-container .content .question{
     background-color: #ffffff;
@@ -97,10 +106,20 @@ body{
 .test-container .content .controls .before{
     color: #9da3fb;
     font-size: 18px;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+.test-container .content .controls .before:hover{
+    color: #4a54f1;
 }
 .test-container .content .controls .after{
     color: #9da3fb;
     font-size: 18px;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+.test-container .content .controls .after:hover{
+    color: #4a54f1;
 }
 .test-container .content .controls .dots{
     display: flex;
@@ -114,6 +133,10 @@ body{
     border: 1px solid #9da3fb;
     border-radius: 50%;
     margin: 0 5px;
+    cursor: pointer;
+}
+.test-container .content .controls .dots .dot:hover{
+    border: 1px solid #4a54f1;
 }
 @media (max-width: 1000px){
     .container{
@@ -127,6 +150,7 @@ body{
     .test-container .content{
         margin-top: 85px;
         background-color: white;
+        border-radius: 0px 0px 25px 25px;
     }
 }
 @media (max-width: 780px){
@@ -179,4 +203,87 @@ body{
     .test-container .content .controls {
         margin-top: 15px;
     }
+    .test-container .content .controls .dots {
+        width: 80%;
+        justify-content: center;
+        gap: 5px;
+        flex-wrap: wrap;
+        margin: 0 7px;
+    }
+}
+/* js classes */
+.hide{
+    display: none;
+}
+.show{
+    display: flex;
+}
+.colorIt{
+    box-shadow: 0px 2px 8px 3px #9da3fb !important;
+}
+
+.answered-dot{
+    background-color: #9da3fb61;
+}
+.active-dot{
+    background-color: #aaaffb;
+    box-shadow: 0 0 2px 0px #9da3fb;
+}
+.onSubmit{
+    color: white;
+    background-color: #9da3fb;
+    padding: 5px;
+    border: 0;
+    border-radius: 15px;
+    width: 65px;
+    margin: 20px 0 10px;
+}
+.test-page .shore{
+    position: absolute;
+    z-index: 99;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(181 185 247);
+    transform: translate(-50%, -50%);
+    border: 1px solid rgb(157, 163, 251);
+    box-shadow: rgb(0 0 0 / 27%) 0px 0px 8px 650px;
+    border-radius: 100px;
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+    display: none;
+}
+.test-page .shore .main-text{
+    margin-top: 10%;
+    margin-bottom: 18%;
+}
+.test-page .shore .choose{
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-around;
+}
+.test-page .shore .choose .yes{
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: 5px 20px;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+
+.test-page .shore .choose .no{
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: 5px 20px;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+.test-page .shore .choose .yes:hover,
+.test-page .shore .choose .no:hover{
+color: #4a54f1;
 }
