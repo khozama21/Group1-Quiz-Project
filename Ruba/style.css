@@ -51,24 +51,29 @@ body {
     font-size: 15px;
 }
 
-#markdiv #show-answer-btn {
+#markdiv #show-answer-btn{
     height: 30px;
     width: 120px;
     border: none;
     border-radius: 10px;
     margin-left: 100px;
-    color: #eaedfe;
     background-color: #717ce8;
 }
-
+#markdiv #show-answer-btn a{
+    text-decoration: none;
+    color: #eaedfe;
+}
 #markdiv #quit-btn {
     height: 30px;
     width: 120px;
     border: none;
     border-radius: 10px;
     margin-left: 60px;
-    color: #eaedfe;
     background-color: #717ce8;
+}
+#markdiv #quit-btn a{
+    text-decoration: none;
+    color: #eaedfe;
 }
 
 /* Media Query FOR MARK PAGE*/
@@ -287,9 +292,12 @@ body {
     border: none;
     border-radius: 10px;
     margin-left: 700px;
-    color: #eaedfe;
     background-color: #717ce8;
     font-size: 20px;
+}
+#result #logout-btn a{
+    text-decoration: none;
+    color: #eaedfe;
 }
 /* Media Query FOR results*/
 /* tablet */
