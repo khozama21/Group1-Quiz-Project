@@ -10,9 +10,9 @@ let submit=document.querySelector(".onSubmit");
 let points=0;
 let active=0;
 var path=Number(window.localStorage.getItem("myPath"));
+let rightAnswers=document.querySelectorAll(".rightOne")
 var myAnswer;
 let sure=document.querySelector(".sure")
-let yes=document.querySelector(".yes")
 let no=document.querySelector(".no")
 
 //functions
@@ -130,17 +130,46 @@ function selectedLi(){
 function onSubmit(){
 
 }
+function checkResult(){
+    points=0;
+    if(path==1){
+        for(i=0;i<questions1.length;i++){
+            if(questions1[i].classList.contains("point")){
+                points++;
+            }
+        }
+    }else if(path==2){
+        for(i=0;i<questions2.length;i++){
+            if(questions2[i].classList.contains("point")){
+                points++;
+            }
+        }
+    }else if(path==3){
+        for(i=0;i<questions3.length;i++){
+            if(questions3[i].classList.contains("point")){
+                points++;
+            }
+        }
+    }
+    window.localStorage.setItem("points",points);
+}
 //add events
 onStart();
 function myRefresh(){
 myAnswer.forEach(e => e.addEventListener("click",function(){
     for(i=0;i<myAnswer.length;i++){
-        myAnswer[i].classList.remove("colorIt")
-        myAnswer[i].classList.remove("selected")
+        myAnswer[i].classList.remove("colorIt");
+        myAnswer[i].classList.remove("selected");
     }
+    
     this.classList.add("colorIt")
     this.classList.add("selected")
     dots.children[active].classList.add("answered-dot")
+    if(this.classList.contains("rightOne")){
+        this.parentElement.parentElement.classList.add("point");
+    }else{
+        this.parentElement.parentElement.classList.remove("point");
+    }
 }));
 }
 myRefresh()
@@ -156,6 +185,7 @@ beforeButton.addEventListener("click",()=>{
     myLis.forEach(ele=>ele.addEventListener("click",selectedLi));
 submit.addEventListener("click",()=>{
 sure.classList.add("popme");
+checkResult()
 })
 no.addEventListener("click",()=>{
     sure.classList.remove("popme");
