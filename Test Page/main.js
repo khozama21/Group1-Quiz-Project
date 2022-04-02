@@ -5,8 +5,9 @@ let questions3=document.querySelectorAll(".path3 .question-container");
 let nexButton=document.querySelector(".after");
 let beforeButton=document.querySelector(".before");
 let dots=document.querySelector(".dots")
+let timer=document.querySelector(".timer span");
+let submit=document.querySelector(".onSubmit")
 let points=0;
-let path=1;
 let active=0;
 var myAnswer;
 //functions
@@ -40,6 +41,7 @@ dots.appendChild(myLi);
 }
 questions2[0].classList.remove("hide")
 questions2[0].classList.add("show")
+myAnswer = [].slice.call(questions2[active].children[1].children);
 }else if(path==3){
         document.querySelector(".path1").classList.add("hide");
         document.querySelector(".path2").classList.add("hide");
@@ -54,6 +56,7 @@ questions2[0].classList.add("show")
         }
         questions3[0].classList.remove("hide")
         questions3[0].classList.add("show")
+        myAnswer = [].slice.call(questions3[active].children[1].children);
     }
     dots.children[active].classList.add("active-dot");
 }
@@ -92,12 +95,35 @@ function activePage(){
         myRefresh()
         dots.children[active].classList.add("active-dot");
    }else if(path==2){
-    console.log("22")
-   }
+    for(i=0;i<questions2.length;i++){
+        questions2[i].classList.remove("show")
+        questions2[i].classList.add("hide")
+        dots.children[i].classList.remove("active-dot")
+     }
+     questions2[active].classList.add("show")
+     questions2[active].classList.remove("hide")
+     myAnswer = [].slice.call(questions2[active].children[1].children);
+     myRefresh()
+     dots.children[active].classList.add("active-dot");
+   }else if(path==3){
+    for(i=0;i<questions3.length;i++){
+        questions3[i].classList.remove("show")
+        questions3[i].classList.add("hide")
+        dots.children[i].classList.remove("active-dot")
+     }
+     questions3[active].classList.add("show")
+     questions3[active].classList.remove("hide")
+     myAnswer = [].slice.call(questions3[active].children[1].children);
+     myRefresh()
+     dots.children[active].classList.add("active-dot");
+    }
  }
 function selectedLi(){
     active=myLis.indexOf(this)
     activePage()
+}
+function onSubmit(){
+
 }
 //add events
 onStart();
@@ -122,4 +148,4 @@ beforeButton.addEventListener("click",()=>{
     activePage()
     })
     let myLis = [].slice.call(dots.children);
-    myLis.forEach(ele=>ele.addEventListener("click",selectedLi))
+    myLis.forEach(ele=>ele.addEventListener("click",selectedLi));
