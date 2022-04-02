@@ -238,14 +238,14 @@ body{
     width: 65px;
     margin: 20px 0 10px;
 }
-.test-page .shore{
+.test-page .sure{
     position: absolute;
     z-index: 99;
     width: 50%;
     height: 50%;
     top: 50%;
     left: 50%;
-    display: flex;
+    display: none;
     align-items: center;
     flex-direction: column;
     background-color: rgb(181 185 247);
@@ -256,19 +256,19 @@ body{
     color: white;
     font-size: 30px;
     font-weight: 800;
-    display: none;
+    
 }
-.test-page .shore .main-text{
+.test-page .sure .main-text{
     margin-top: 10%;
     margin-bottom: 18%;
 }
-.test-page .shore .choose{
+.test-page .sure .choose{
     display: flex;
     width: 80%;
     align-items: center;
     justify-content: space-around;
 }
-.test-page .shore .choose .yes{
+.test-page .sure .choose .yes{
     border: 1px solid white;
     border-radius: 25px;
     padding: 5px 20px;
@@ -276,14 +276,14 @@ body{
     transition: ease 0.3s;
 }
 
-.test-page .shore .choose .no{
+.test-page .sure .choose .no{
     border: 1px solid white;
     border-radius: 25px;
     padding: 5px 20px;
     cursor: pointer;
     transition: ease 0.3s;
 }
-.test-page .shore .choose .yes:hover,
-.test-page .shore .choose .no:hover{
+.test-page .sure .choose .yes:hover,
+.test-page .sure .choose .no:hover{
 color: #4a54f1;
 }

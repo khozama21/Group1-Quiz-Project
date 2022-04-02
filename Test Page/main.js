@@ -9,6 +9,7 @@ let timer=document.querySelector(".timer span");
 let submit=document.querySelector(".onSubmit")
 let points=0;
 let active=0;
+var path=Number(window.localStorage.getItem("myPath"))
 var myAnswer;
 //functions
 function onStart(){
