@@ -194,17 +194,25 @@ header {
 }
 
 .card:not(:first-child) {
-    margin-left: -50px;
+    margin-left: -30px;
 }
 
 .card:hover {
-  transform: translateY(-20px);
+  transform: translateY(-5px);
+  transition: 0.4s ease-out;
+}
+.card:nth-child(2):hover {
+  transform: translateY(20px);
+  transition: 0.4s ease-out;
+}
+.card:nth-child(3):hover {
+  transform: translateY(40px);
   transition: 0.4s ease-out;
 }
 
 .card:hover ~ .card {
   position: relative;
-  left: 50px;
+  left: 30px;
   transition: 0.4s ease-out;
 }
 .info {
@@ -227,7 +235,7 @@ header {
   /* margin-top: 20px; */
   margin-bottom: 20px;
 }
-.quizzes a {
+.quizzes .main-btn {
   color: var(--button-color);
     background-color:var(--mainColor);
     text-decoration: none;
@@ -240,8 +248,10 @@ header {
     margin-top: 20px;
     transition-duration: 0.7s;
     transition-timing-function: ease;
+
 }
-.quizzes a:hover {
+
+.quizzes .main-btn:hover {
   background-color: var(--button-color);
   color: var(--mainColor);
   font-weight: 700;
@@ -354,5 +364,95 @@ footer {
   }
   .landing img {
     width: 200px;
+  }
+}
+.sure{
+  z-index: 99;
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(181 185 247);
+  transform: translate(-50%, -50%);
+  border: 1px solid rgb(157, 163, 251);
+  box-shadow: rgb(0 0 0 / 27%) 0px 0px 8px 650px;
+  border-radius: 100px;
+  color: white;
+  font-size: 30px;
+  font-weight: 800;
+  position: fixed;
+}
+.sure .main-text{
+  margin-top: 10%;
+  margin-bottom: 18%;
+}
+.sure .choose{
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: space-around;
+}
+.sure .choose .yes{
+  border: 1px solid white;
+  border-radius: 25px;
+  padding: 5px 20px;
+  cursor: pointer;
+  transition: ease 0.3s;
+}
+.sure .choose .yes a{
+  text-decoration: inherit;
+  color: inherit;
+
+}
+
+.sure .choose .no{
+  border: 1px solid white;
+  border-radius: 25px;
+  padding: 5px 20px;
+  cursor: pointer;
+  transition: ease 0.3s;
+}
+.sure .choose .yes:hover,
+.sure .choose .no:hover{
+color: #4a54f1;
+}
+.show{
+  display: flex;
+}
+.card:nth-child(2){
+  transform: translateY(25px);
+}
+.card:nth-child(3){
+  transform: translateY(50px);
+}
+@media(max-width:750px){
+  .landing{
+    display: none;
+  }
+.quizzes{
+  padding-bottom: 75px;
+    padding-top: 115px;
+}
+.card:not(:first-child) {
+   margin-left: 0px; 
+}
+.quizzes h2 {
+  width: 90%;
+
+}
+.container {
+  flex-direction: column;
+  align-items: center;
+}
+.card{
+  width: 120%;
+}
+}
+@media(max-width:400px){
+  .card{
+    width: 100%;
   }
 }
