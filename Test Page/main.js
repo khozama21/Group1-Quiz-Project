@@ -2,10 +2,6 @@
 let questions1=document.querySelectorAll(".path1 .question-container");
 let questions2=document.querySelectorAll(".path2 .question-container");
 let questions3=document.querySelectorAll(".path3 .question-container");
-// let answer1=document.querySelector(".answer1");
-// let answer2=document.querySelector(".answer2");
-// let answer3=document.querySelector(".answer3");
-// let answer4=document.querySelector(".answer4");
 let nexButton=document.querySelector(".after");
 let beforeButton=document.querySelector(".before");
 let dots=document.querySelector(".dots")
@@ -59,8 +55,8 @@ questions2[0].classList.add("show")
         questions3[0].classList.remove("hide")
         questions3[0].classList.add("show")
     }
+    dots.children[active].classList.add("active-dot");
 }
-
 function addActive(){
 if(path==1 || path==2){
 if(active==4){
@@ -83,21 +79,26 @@ function decreaseActive(){
         }else{active--}
     }
     }
-   function activePage(){
+function activePage(){
        if(path==1){
            for(i=0;i<questions1.length;i++){
            questions1[i].classList.remove("show")
            questions1[i].classList.add("hide")
+           dots.children[i].classList.remove("active-dot")
         }
         questions1[active].classList.add("show")
         questions1[active].classList.remove("hide")
         myAnswer = [].slice.call(questions1[active].children[1].children);
         myRefresh()
-        console.log(active)
+        dots.children[active].classList.add("active-dot");
    }else if(path==2){
     console.log("22")
    }
  }
+function selectedLi(){
+    active=myLis.indexOf(this)
+    activePage()
+}
 //add events
 onStart();
 function myRefresh(){
@@ -120,3 +121,5 @@ beforeButton.addEventListener("click",()=>{
     decreaseActive()
     activePage()
     })
+    let myLis = [].slice.call(dots.children);
+    myLis.forEach(ele=>ele.addEventListener("click",selectedLi))
