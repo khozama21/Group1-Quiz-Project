@@ -63,6 +63,30 @@ questions2[0].classList.add("show")
 
 //add events
 onStart();
-questions1[0].children[1].children[1].addEventListener("click",function(){
-    console.log("hi hi")
-})
+var myAnswer = [].slice.call(questions1[0].children[1].children);
+myAnswer.forEach(e => e.addEventListener("click",function(){
+    for(i=0;i<myAnswer.length;i++){
+        myAnswer[i].classList.remove("colorIt")
+        myAnswer[i].classList.remove("selected")
+    }
+    this.classList.add("colorIt")
+    this.classList.add("selected")
+}))
+//.forEach(e=>e.addEventListener("click",function(){
+//     console.log(this)
+// }))
+// questions1[0].children[1].children[1].addEventListener("click",function(){
+//     console.log("hi hi");
+// },{once:true})
+// questions1[1].children[1].children[0].addEventListener("click",function(){
+//     console.log("hi hi");
+// })
+// questions1[2].children[1].children[2].addEventListener("click",function(){
+//     console.log("hi hi");
+// })
+// questions1[3].children[1].children[0].addEventListener("click",function(){
+//     console.log("hi hi");
+// })
+// questions1[4].children[1].children[3].addEventListener("click",function(){
+//     console.log("hi hi");
+// })
