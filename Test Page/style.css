@@ -60,8 +60,10 @@ body{
     box-shadow: 0px 6px 9px 2px #eceffe;
     position: relative;
 }
-.test-container .content .question::after{
-    content: "IQ: 3-5";
+.test-container .content .path1 .question::after,
+.test-container .content .path2 .question::after,
+.test-container .content .path3 .question::after{
+    content: "IQ: 1-5";
     background-color: #9da3fb;
     border-radius: 25px;
     position: absolute;
@@ -71,7 +73,66 @@ body{
     font-size: 14px;
     color: white;
     transform: translate(-50% , -50%);
-
+}
+.test-container .content .path1 .question-container:nth-child(1) .question::after{
+    content: "IQ: 1-5";
+}
+.test-container .content .path1 .question-container:nth-child(2) .question::after{
+    content: "IQ: 2-5";
+}
+.test-container .content .path1 .question-container:nth-child(3) .question::after{
+    content: "IQ: 3-5";
+}
+.test-container .content .path1 .question-container:nth-child(4) .question::after{
+    content: "IQ: 4-5";
+}
+.test-container .content .path1 .question-container:nth-child(5) .question::after{
+    content: "IQ: 5-5";
+}
+.test-container .content .path2 .question-container:nth-child(1) .question::after{
+    content: "English: 1-5";
+}
+.test-container .content .path2 .question-container:nth-child(2) .question::after{
+    content: "English: 2-5";
+}
+.test-container .content .path2 .question-container:nth-child(3) .question::after{
+    content: "English: 3-5";
+}
+.test-container .content .path2 .question-container:nth-child(4) .question::after{
+    content: "English: 4-5";
+}
+.test-container .content .path2 .question-container:nth-child(5) .question::after{
+    content: "English: 5-5";
+}
+.test-container .content .path3 .question-container:nth-child(1) .question::after{
+    content: "Technical: 1-10";
+}
+.test-container .content .path3 .question-container:nth-child(2) .question::after{
+    content: "Technical: 2-10";
+}
+.test-container .content .path3 .question-container:nth-child(3) .question::after{
+    content: "Technical: 3-10";
+}
+.test-container .content .path3 .question-container:nth-child(4) .question::after{
+    content: "Technical: 4-10";
+}
+.test-container .content .path3 .question-container:nth-child(5) .question::after{
+    content: "Technical: 5-10";
+}
+.test-container .content .path3 .question-container:nth-child(6) .question::after{
+    content: "Technical: 6-10";
+}
+.test-container .content .path3 .question-container:nth-child(7) .question::after{
+    content: "Technical: 7-10";
+}
+.test-container .content .path3 .question-container:nth-child(8) .question::after{
+    content: "Technical: 8-10";
+}
+.test-container .content .path3 .question-container:nth-child(9) .question::after{
+    content: "Technical: 9-10";
+}
+.test-container .content .path3 .question-container:nth-child(10) .question::after{
+    content: "Technical: 10-10";
 }
 .test-container .content .answers{
     width: 88%;
