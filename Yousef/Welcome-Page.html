@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="Welcome-Page.css">
+<script src="Welcome-Page.js" defer></script>
 
     <title>Document</title>
 </head>
@@ -60,7 +61,7 @@
                     <h3 class="title">Technical Test</h3>
                     <p>10 questions</p>
                 </div>
-                <a href="#" target="_blank">Start Testing</a>
+                <a href="../Test Page/index.html" id="button3">Start Testing</a>
             </div>
     </section>
     
@@ -69,19 +70,6 @@
                 <div class="footer-text">Copyrights <i class="fa-solid fa-copyright"></i> 2022 <span>AKRSY</span>.
                     All Rights Reserved.</div>
     </footer>
-
-    <script>
-        document.querySelector('.userlogo').addEventListener('click', function () {
-            if (document.querySelector('.user').classList.contains("active")) {
-                document.querySelector('.user').classList.remove("active");
-            } else{
-                document.querySelector('.user').classList.add("active")
-            } ;
-        })
-    
-let userName=localStorage.getItem("name");
-document.getElementById("wlcname").innerHTML=userName;
-    </script>
 </body>
 
 </html>
