@@ -69,7 +69,7 @@ main === #eaedfe-->
                         <form method="POST" class="register-form needs-validation" id="register-form">
                             <div class="form-group">
                                 <label for="name"></label>
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" pattern="[a-zA-Z]*" required/>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" pattern="/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/" required/>
                                 <small id="namehint" class="form-text text-muted">your name should only contain alphabatical characters</small>
                                 <!-- <div class="valid-feedback">
                                   Looks good!
@@ -105,7 +105,7 @@ main === #eaedfe-->
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                             </div>
                             <div class="form-group form-button">
-                                <button id="btn" class="btn form-submit"  >Submit</button>
+                                <button id="btn" class="btn form-submit">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -131,7 +131,7 @@ main === #eaedfe-->
 //  } 
 //  confirmPw(document.getElementById("re-pass"));
 
-           document.getElementById("signup").addEventListener('click',function(){
+        document.getElementById("btn").addEventListener('click',function(){
           
         let inputname = document.getElementById("name");
         localStorage.setItem("name", inputname.value);
@@ -147,7 +147,7 @@ main === #eaedfe-->
 
         
 
-        // window.open("card.html");
+        window.open("Welcome-Page.html");
 
            });
 

@@ -30,7 +30,7 @@
     </header>
     <section class="landing">
         <div class="landing-content">
-            <h1>Welcome,<span>First Name</span></h1>
+            <h1>Welcome,<span id="wlcname">First Name</span></h1>
             <p>This is the first step to becoming a member of our family.</p>
         </div>
         <img src="./images/exams_g-4-ow.svg" alt="exam">
@@ -79,7 +79,8 @@
             } ;
         })
     
-
+let userName=localStorage.getItem("name");
+document.getElementById("wlcname").innerHTML=userName;
     </script>
 </body>
 
