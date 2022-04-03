@@ -1,5 +1,8 @@
 //selectors
 var path=Number(window.localStorage.getItem("myPath"));
+let Rpath1;
+let Rpath2;
+let Rpath3;
 let path1=document.querySelector(".path1");
 let path2=document.querySelector(".path2");
 let path3=document.querySelector(".path3");
@@ -54,6 +57,8 @@ function onStart(){
         document.querySelector(".path2").classList.add("hide");
         document.querySelector(".path3").classList.add("hide");
 points=0;
+Rpath1=points;
+window.localStorage.setItem("Rpath1",Rpath1);
 for(i=0;i<questions1.length;i++){
 questions1[i].classList.add("hide")
 let myLi=document.createElement("li");
@@ -70,6 +75,8 @@ myAnswer = [].slice.call(questions1[active].children[1].children);
     document.querySelector(".path2").classList.add("show");
     document.querySelector(".path3").classList.add("hide");
     points=0;
+    Rpath2=points;
+    window.localStorage.setItem("Rpath2",Rpath2);
 for(i=0;i<questions2.length;i++){
 questions2[i].classList.add("hide")
 let myLi=document.createElement("li");
@@ -86,6 +93,8 @@ myAnswer = [].slice.call(questions2[active].children[1].children);
         document.querySelector(".path2").classList.add("hide");
         document.querySelector(".path3").classList.add("show");
         points=0;
+        Rpath3=points;
+        window.localStorage.setItem("Rpath3",Rpath3);
         for(i=0;i<questions3.length;i++){
         questions3[i].classList.add("hide")
         let myLi=document.createElement("li");
@@ -172,6 +181,7 @@ function checkResult(){
         for(i=0;i<questions1.length;i++){
             if(questions1[i].classList.contains("point")){
                 points++;
+                Rpath1=points;
             }
             for(j=0;j<4;j++){
                 if(questions1[i].children[1].children[j].classList.contains("ops")){
@@ -180,11 +190,14 @@ function checkResult(){
                 
             }
         }
+        window.localStorage.setItem("Rpath1",Rpath1);
         
     }else if(path==2){
         for(i=0;i<questions2.length;i++){
             if(questions2[i].classList.contains("point")){
                 points++;
+                Rpath2=points;
+                
             }
             for(j=0;j<4;j++){
                 if(questions2[i].children[1].children[j].classList.contains("ops")){
@@ -193,10 +206,12 @@ function checkResult(){
                 
             }
         }
+        window.localStorage.setItem("Rpath2",Rpath2);
     }else if(path==3){
         for(i=0;i<questions3.length;i++){
             if(questions3[i].classList.contains("point")){
                 points++;
+                Rpath3=points;
             }
             for(j=0;j<4;j++){
                 if(questions3[i].children[1].children[j].classList.contains("ops")){
@@ -205,9 +220,13 @@ function checkResult(){
                 
             }
         }
+        window.localStorage.setItem("Rpath3",Rpath3);
     }
     window.localStorage.setItem("points",points);
     window.localStorage.setItem("wrongAnswers",JSON.stringify(myRAnswers));
+    
+    
+    
 }
 //add events
 onStart()
@@ -271,7 +290,7 @@ function updateCounter(){
     }
     if(time==0){
         checkResult()
-        location.href="../Ruba/mark.html";
+        location.href="../Yousef/Welcome-Page.html";
     }
     time--;
 }
