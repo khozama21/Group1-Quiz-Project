@@ -1,4 +1,8 @@
-//selectors
+//selected path
+var path=Number(window.localStorage.getItem("myPath"));
+let path1=document.querySelector(".path1");
+let path2=document.querySelector(".path2");
+let path3=document.querySelector(".path3");
 let questions1=document.querySelectorAll(".path1 .question-container");
 let questions2=document.querySelectorAll(".path2 .question-container");
 let questions3=document.querySelectorAll(".path3 .question-container");
@@ -9,11 +13,42 @@ let timer=document.querySelector(".timer span");
 let submit=document.querySelector(".onSubmit");
 let points=0;
 let active=0;
-var path=Number(window.localStorage.getItem("myPath"));
+
 let rightAnswers=document.querySelectorAll(".rightOne")
 var myAnswer;
 let sure=document.querySelector(".sure")
 let no=document.querySelector(".no")
+//json file
+async function get(){
+    let response = await fetch("./Data.json");
+    let data = await response.json();
+    if(path==1){
+        for(i=0;i<questions1.length;i++){
+        questions1[i].children[0].innerHTML=`${data.path1.questions[i]}`
+        for(j=0;j<4;j++){
+        questions1[i].children[1].children[j].innerHTML=data.path1Answers[i][j];
+    }
+    }
+    }else if(path==2){
+        for(i=0;i<questions2.length;i++){
+        questions2[i].children[0].innerHTML=`${data.path2.questions[i]}`
+        for(j=0;j<4;j++){
+        questions2[i].children[1].children[j].innerHTML=data.path2Answers[i][j];
+    }
+}
+    }else if(path==3){
+        for(i=0;i<questions3.length;i++){
+        questions3[i].children[0].innerHTML=`${data.path3.questions[i]}`
+        for(j=0;j<4;j++){
+        questions3[i].children[1].children[j].innerHTML=data.path3Answers[i][j];
+    }
+    }
+}
+}
+
+get()
+//selectors
+
 
 //functions
 function onStart(){
@@ -154,7 +189,7 @@ function checkResult(){
     window.localStorage.setItem("points",points);
 }
 //add events
-onStart();
+onStart()
 function myRefresh(){
 myAnswer.forEach(e => e.addEventListener("click",function(){
     for(i=0;i<myAnswer.length;i++){
