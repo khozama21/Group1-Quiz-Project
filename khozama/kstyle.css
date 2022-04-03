@@ -31,7 +31,9 @@ body {
   color: white;
 
 }
-
+.validate{
+  color: red;
+}
 /* ********************************************************************* */
 /* @extend display-flex; */
 display-flex,
