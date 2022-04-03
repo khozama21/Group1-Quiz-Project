@@ -57,6 +57,8 @@ function onStart(){
         document.querySelector(".path2").classList.add("hide");
         document.querySelector(".path3").classList.add("hide");
 points=0;
+Rpath1=points;
+window.localStorage.setItem("Rpath1",Rpath1);
 for(i=0;i<questions1.length;i++){
 questions1[i].classList.add("hide")
 let myLi=document.createElement("li");
@@ -73,6 +75,8 @@ myAnswer = [].slice.call(questions1[active].children[1].children);
     document.querySelector(".path2").classList.add("show");
     document.querySelector(".path3").classList.add("hide");
     points=0;
+    Rpath2=points;
+    window.localStorage.setItem("Rpath2",Rpath2);
 for(i=0;i<questions2.length;i++){
 questions2[i].classList.add("hide")
 let myLi=document.createElement("li");
@@ -89,6 +93,8 @@ myAnswer = [].slice.call(questions2[active].children[1].children);
         document.querySelector(".path2").classList.add("hide");
         document.querySelector(".path3").classList.add("show");
         points=0;
+        Rpath3=points;
+        window.localStorage.setItem("Rpath3",Rpath3);
         for(i=0;i<questions3.length;i++){
         questions3[i].classList.add("hide")
         let myLi=document.createElement("li");
@@ -284,7 +290,7 @@ function updateCounter(){
     }
     if(time==0){
         checkResult()
-        location.href="../Ruba/mark.html";
+        location.href="../Yousef/Welcome-Page.html";
     }
     time--;
 }
