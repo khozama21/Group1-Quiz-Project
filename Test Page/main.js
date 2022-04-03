@@ -9,7 +9,6 @@ let questions3=document.querySelectorAll(".path3 .question-container");
 let nexButton=document.querySelector(".after");
 let beforeButton=document.querySelector(".before");
 let dots=document.querySelector(".dots")
-let timer=document.querySelector(".timer span");
 let submit=document.querySelector(".onSubmit");
 let points=0;
 let active=0;
@@ -18,6 +17,8 @@ var myAnswer;
 let sure=document.querySelector(".sure")
 let no=document.querySelector(".no")
 let myRAnswers=[];
+let timer=document.querySelector(".timer span");
+let startingMinutes;
 //functions
 async function get(){
     let response = await fetch("./Data.json");
@@ -48,6 +49,7 @@ async function get(){
 get()
 function onStart(){
     if(path==1){
+        startingMinutes=questions1.length/4;
         document.querySelector(".path1").classList.add("show");
         document.querySelector(".path2").classList.add("hide");
         document.querySelector(".path3").classList.add("hide");
@@ -63,6 +65,7 @@ questions1[active].classList.remove("hide")
 questions1[active].classList.add("show")
 myAnswer = [].slice.call(questions1[active].children[1].children);
 }else if(path==2){
+    startingMinutes=questions2.length/4;
     document.querySelector(".path1").classList.add("hide");
     document.querySelector(".path2").classList.add("show");
     document.querySelector(".path3").classList.add("hide");
@@ -78,6 +81,7 @@ questions2[0].classList.remove("hide")
 questions2[0].classList.add("show")
 myAnswer = [].slice.call(questions2[active].children[1].children);
 }else if(path==3){
+    startingMinutes=questions3.length/4;
         document.querySelector(".path1").classList.add("hide");
         document.querySelector(".path2").classList.add("hide");
         document.querySelector(".path3").classList.add("show");
@@ -249,4 +253,26 @@ checkResult()
 no.addEventListener("click",()=>{
     sure.classList.remove("popme");
 });
+//timer
+let time=startingMinutes*60;
 
+function updateCounter(){
+    var minutes=Math.floor(time/60);
+    let seconds=time%60;
+    if(minutes<=9 && seconds<=9){
+        timer.innerHTML=`0${minutes}:0${seconds}`;
+    }else if(minutes<=9 && seconds>=10){
+        timer.innerHTML=`0${minutes}:${seconds}`;
+    }else if(seconds<=9 && minutes>=10){
+        timer.innerHTML=`${minutes}:0${seconds}`;
+    }
+    if(time<=10){
+        timer.style.color = "#ff4848";
+    }
+    if(time==0){
+        checkResult()
+        location.href="../Ruba/mark.html";
+    }
+    time--;
+}
+setInterval(updateCounter,1000);

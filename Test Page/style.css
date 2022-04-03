@@ -36,6 +36,8 @@ body{
 .test-container .timer{
     font-size: 20px;
     color: white;
+    font-weight: 900;
+    text-shadow: 5px 1px 10px #9da3fb;
 }
 .test-container .content{
     display: flex;
