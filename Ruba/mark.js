@@ -1,7 +1,7 @@
 
 let mark= Number(window.localStorage.getItem("points"))
 // console.log(mark)
-
+// mark=10
 if (mark>=10){
     document.getElementById('msg1').style.display="block"
     document.getElementById('mark2').innerHTML+=mark + ' / 20'
