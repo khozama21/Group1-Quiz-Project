@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Registration</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,7 +13,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+     <!-- js
+     <link rel="stylesheet" href="signup.js"> -->
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +22,7 @@
 
 
 <link rel="stylesheet" href="kstyle.css">
-<link rel="stylesheet" href="kjs.js">
+<!-- <link rel="stylesheet" href="kjs.js"> -->
 <!--   meduim = #9da3fb
  light= #c1c3fc
    buttons = #717ce8 
@@ -48,7 +49,7 @@ main === #eaedfe-->
   <body>
      
      <nav class="navbar fixed-top navbar-expand-lg ">
-        <a class="navbar-brand" href="#"><img src="myLOGO.png" width="100px " alt=""></a></a>
+        <a class="navbar-brand" href="#"><img src="images/myLOGO.png" width="100px " alt=""></a></a>
        
           <ul class="navbar-nav mr-auto">
             
@@ -69,35 +70,28 @@ main === #eaedfe-->
                         <form method="" class="register-form needs-validation" id="register-form">
                             <div class="form-group">
                                 <label for="name"></label>
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" pattern="/^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/" required/>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" pattern="/^[a-zA-Z\-]+$/" required/>
                                 <small id="namehint" class="form-text text-muted">your name should only contain alphabatical characters</small>
-                                <!-- <div class="valid-feedback">
-                                  Looks good!
-                                </div> -->
+                                 
                             </div>
                             <div class="form-group">
                                 <label for="email">  </label>
                                 <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
                                 <small id="emailhint" class="form-text text-muted">name@example.com</small>
-
-                                <!-- <div class="invalid-feedback">
-                                  Please choose a valid Email.
-                                </div> -->
+ 
                             </div>
                             <div class="form-group">
                                 <label for="pass">  </label>
                                 <input type="password" class="form-control" name="pass" id="pass" placeholder="Password"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/>
                                 <small id="pwhint" class="form-text text-muted"> The password should contain At least 8 characters, uppercase and lowercase letters,numbers,and at least one special character</small>
 
-                                <!-- <div class="invalid-feedback">
-                                  The password should contain At least 8 characters, A mixture of both uppercase and lowercase letters, A mixture of letters and numbers.
-                                  And Inclusion of at least one special character, e.g., ! @ # ? ]
-                                </div> -->
+                                
                             </div>
                             <div class="form-group">
                                 <label for="re-pass"> </label>
-                                <input type="password" class="form-control" name="re_pass" id="re_pass" placeholder="Repeat your password"   required />
-                                <small id="pwhint" class="form-text text-muted"> The password should match the password entered previuosly</small>
+                                <input type="password" class="form-control" name="re_pass" id="re_pass" placeholder="Confirm password"   required />
+                                <!-- <small id="pwhint" class="form-text text-muted"> The password should match the password entered previuosly</small> -->
+                                <div class="validate"> </div>
 
                             </div>
                             <div class="form-group">
@@ -110,7 +104,7 @@ main === #eaedfe-->
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="97.png" alt="sing up image"  ></figure>
+                        <figure><img src="images/97.png" alt="sing up image"  ></figure>
                         <a href="login.html" class="signup-image-link">Have an account already!</a>
                          
                     </div>
@@ -119,17 +113,7 @@ main === #eaedfe-->
         </section>
         </div>
          <script>
-//           function confirmPw(value){      
-//    let cpw=document.getElementById('pass').value;
-//    if( value.match(cpw)){
-//     //  document.getElementById("pwhint").innerHTML="password matched";
-
-//    } else{
-//     // document.getElementById("pwhint").innerHTML="password doesn't match";
-//     alert("pass dsnt match")
-//    }
-//  } 
-//  confirmPw(document.getElementById("re-pass"));
+ 
 
         document.getElementById("btn").addEventListener('click',function(){
           
@@ -140,13 +124,26 @@ main === #eaedfe-->
         localStorage.setItem("email", email.value);
 
         let pass = document.getElementById("pass");
-        localStorage.setItem("pw", pass.value);
+        // localStorage.setItem("pw", pass.value);
+        let validate = document.querySelectorAll('.validate');
 
-        // let repass = document.getElementById("re-pass");
-        // localStorage.setItem("rpw", repass.value);
 
-        
+        let repass = document.getElementById("re_pass");
+
+        let pass1 = pass.value;
+            let pass2 = repass.value;
+       
+           
+            
+            if(pass1 === pass2){
+                localStorage.setItem("pw", pass.value);
+        localStorage.setItem("rpw", repass.value);
         location.href = "login.html";
+            }else{
+              validate[0].innerText = 'Password does not match';
+        
+            }
+        
 
            });
 

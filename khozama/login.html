@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>LogIn</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,6 +13,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="kstyle.css">
+    <!-- js
+    <link rel="stylesheet" href="signin.js"> -->
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +40,7 @@ input:invalid{
   <body>
          
      <nav class="navbar fixed-top navbar-expand-lg ">
-        <a class="navbar-brand" href="#"><img src="myLOGO.png" width="100px " alt=""></a></a>
+        <a class="navbar-brand" href="#"><img src="images/myLOGO.png" width="100px " alt=""></a></a>
         
       
          
@@ -83,7 +85,7 @@ input:invalid{
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="196.png" alt="sing up image"  ></figure>
+                        <figure><img src="images/196.png" alt="sing up image"  ></figure>
                         <a href="Registeration.html" class="signup-image-link">Create an account</a>
                          
                     </div>
@@ -101,17 +103,21 @@ input:invalid{
 
         btn.addEventListener('click', (e) => {
             let currentemail = Email.value;
-            console.log(currentemail);
             let currentpassword = Password.value;
-            console.log(currentpassword);
+       
            
             
             if(currentemail === localStorage.getItem('email') && currentpassword === localStorage.getItem('pw')){
-                location.href = "Yousef\Welcome-Page.html";
+                location.href = "../Yousef/Welcome-Page.html";
+                // document.getElementById('btn').setAttribute("href","../Yousef/Welcome-Page.html");
+              
                 
-                
-            }else{
+            }else if (currentemail != localStorage.getItem('email')){
+                validate[0].innerHTML="  Email is incorrect"
+            }
+            else{
                 validate[1].innerText = 'Password is incorrect';
+
             }
         });
 </script>
