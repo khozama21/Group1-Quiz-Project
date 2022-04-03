@@ -576,3 +576,16 @@ body {
     }
 
 }
+#result{
+    text-align: center;
+}
+#result #logout-btn {
+    height: 30px;
+    width: 120px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 0; 
+    background-color: #717ce8;
+    font-size: 20px;
+    text-align: center;
+}
