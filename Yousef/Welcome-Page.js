@@ -11,7 +11,9 @@ document.getElementById("wlcname").innerHTML=userName;
 let button3=document.querySelector("#button3")
 let button2=document.querySelector("#button2")
 let button1=document.querySelector("#button1")
+let buttonDiv=document.querySelectorAll(".button")
 let MyAlert=document.querySelector(".sure")
+console.log(buttonDiv)
 var path;
  function showMe(){
      MyAlert.classList.add("show")
@@ -31,6 +33,16 @@ button1.addEventListener("click",()=>{
     path=1
     window.localStorage.setItem("myPath",path)
 })
+
+// window.localStorage.setItem("finished",'finished')
+// for(i=0;i<buttonDiv.length;i++){
+//     if (localStorage.getItem('finished') !== null) {
+//         buttonDiv[i].innerHTML= "finished";
+//         console.log(`Email address exists`);
+//     } else {
+//         console.log(`Email address not found`);
+//     }
+// }
 
 
 
