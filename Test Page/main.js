@@ -1,4 +1,4 @@
-//selected path
+//selectors
 var path=Number(window.localStorage.getItem("myPath"));
 let path1=document.querySelector(".path1");
 let path2=document.querySelector(".path2");
@@ -13,12 +13,11 @@ let timer=document.querySelector(".timer span");
 let submit=document.querySelector(".onSubmit");
 let points=0;
 let active=0;
-
 let rightAnswers=document.querySelectorAll(".rightOne")
 var myAnswer;
 let sure=document.querySelector(".sure")
 let no=document.querySelector(".no")
-//json file
+//functions
 async function get(){
     let response = await fetch("./Data.json");
     let data = await response.json();
@@ -45,12 +44,7 @@ async function get(){
     }
 }
 }
-
 get()
-//selectors
-
-
-//functions
 function onStart(){
     if(path==1){
         document.querySelector(".path1").classList.add("show");
