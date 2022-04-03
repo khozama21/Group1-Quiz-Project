@@ -171,7 +171,7 @@ function checkResult(){
             }
             for(j=0;j<4;j++){
                 if(questions1[i].children[1].children[j].classList.contains("ops")){
-                    myRAnswers.push(questions1[i].children[1].children[j]);
+                    myRAnswers.push(questions1[i].children[1].children[j].classList[1]);
                 }
                 
             }
@@ -182,15 +182,28 @@ function checkResult(){
             if(questions2[i].classList.contains("point")){
                 points++;
             }
+            for(j=0;j<4;j++){
+                if(questions2[i].children[1].children[j].classList.contains("ops")){
+                    myRAnswers.push(questions2[i].children[1].children[j].classList[1]);
+                }
+                
+            }
         }
     }else if(path==3){
         for(i=0;i<questions3.length;i++){
             if(questions3[i].classList.contains("point")){
                 points++;
             }
+            for(j=0;j<4;j++){
+                if(questions3[i].children[1].children[j].classList.contains("ops")){
+                    myRAnswers.push(questions3[i].children[1].children[j].classList[1]);
+                }
+                
+            }
         }
     }
     window.localStorage.setItem("points",points);
+    window.localStorage.setItem("wrongAnswers",JSON.stringify(myRAnswers));
 }
 //add events
 onStart()
