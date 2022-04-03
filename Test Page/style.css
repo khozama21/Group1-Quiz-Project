@@ -69,6 +69,7 @@ body{
     position: absolute;
     top: -5px;
     left: 50%;
+    width: fit-content;
     padding: 5px 12px;
     font-size: 14px;
     color: white;

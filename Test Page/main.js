@@ -17,6 +17,7 @@ let rightAnswers=document.querySelectorAll(".rightOne")
 var myAnswer;
 let sure=document.querySelector(".sure")
 let no=document.querySelector(".no")
+let myRAnswers=[];
 //functions
 async function get(){
     let response = await fetch("./Data.json");
@@ -161,12 +162,21 @@ function onSubmit(){
 }
 function checkResult(){
     points=0;
+    myRAnswers=[]
     if(path==1){
+        
         for(i=0;i<questions1.length;i++){
             if(questions1[i].classList.contains("point")){
                 points++;
             }
+            for(j=0;j<4;j++){
+                if(questions1[i].children[1].children[j].classList.contains("ops")){
+                    myRAnswers.push(questions1[i].children[1].children[j]);
+                }
+                
+            }
         }
+        
     }else if(path==2){
         for(i=0;i<questions2.length;i++){
             if(questions2[i].classList.contains("point")){
@@ -196,7 +206,14 @@ myAnswer.forEach(e => e.addEventListener("click",function(){
     dots.children[active].classList.add("answered-dot")
     if(this.classList.contains("rightOne")){
         this.parentElement.parentElement.classList.add("point");
+        for(i=0;i<4;i++){
+            this.parentElement.children[i].classList.remove("ops")
+        }
     }else{
+        for(i=0;i<4;i++){
+            this.parentElement.children[i].classList.remove("ops")
+        }
+        this.classList.add("ops")
         this.parentElement.parentElement.classList.remove("point");
     }
 }));
@@ -219,3 +236,4 @@ checkResult()
 no.addEventListener("click",()=>{
     sure.classList.remove("popme");
 });
+
