@@ -8,12 +8,15 @@ document.querySelector('.userlogo').addEventListener('click', function () {
 
 let userName=localStorage.getItem("name");
 document.getElementById("wlcname").innerHTML=userName;
+
 let button3=document.querySelector("#button3")
 let button2=document.querySelector("#button2")
 let button1=document.querySelector("#button1")
-let buttonDiv=document.querySelectorAll(".button")
+let buttonDiv1=document.querySelector(".button1")
+let buttonDiv2=document.querySelector(".button2")
+let buttonDiv3=document.querySelector(".button3")
 let MyAlert=document.querySelector(".sure")
-console.log(buttonDiv)
+
 var path;
  function showMe(){
      MyAlert.classList.add("show")
@@ -34,15 +37,22 @@ button1.addEventListener("click",()=>{
     window.localStorage.setItem("myPath",path)
 })
 
-// window.localStorage.setItem("finished",'finished')
-// for(i=0;i<buttonDiv.length;i++){
-//     if (localStorage.getItem('finished') !== null) {
-//         buttonDiv[i].innerHTML= "finished";
-//         console.log(`Email address exists`);
-//     } else {
-//         console.log(`Email address not found`);
-//     }
-// }
+// window.localStorage.setItem("finished1",'finished')
+// window.localStorage.setItem("finished2",'finished')
+// window.localStorage.setItem("finished3",'finished')
+
+    if (localStorage.getItem('finished1') !== null) {
+        buttonDiv1.innerHTML= `<p class="finish">/5</p>`;
+        console.log(`Email address exists`);
+    }
+    if (localStorage.getItem('finished2') !== null) {
+        buttonDiv2.innerHTML= `<p class="finish">/5</p>`;
+        console.log(`Email address exists`);
+    }
+    if (localStorage.getItem('finished3') !== null) {
+        buttonDiv3.innerHTML= `<p class="finish">/10</p>`;
+        console.log(`Email address exists`);
+    }
 
 
 
