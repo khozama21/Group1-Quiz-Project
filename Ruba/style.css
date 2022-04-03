@@ -23,6 +23,7 @@ footer {
   .footer-text span {
     color:#9da3fb;
   }
+  /* End of Footer */
 
 /* MARK PAGE STYLE */
 
@@ -183,7 +184,6 @@ footer {
     }
 }
 
-  /* End of Footer */
   
 
 /* RESULT PAGE STYLE */
@@ -449,7 +449,7 @@ footer {
         grid-template-columns: auto auto;
         gap: 60px;
         width: 1000px;
-        margin-left: 0 auto !important;
+        margin: 0 auto !important;
     }
     #result #tech-result #tech-container {
         display: grid;
@@ -468,7 +468,6 @@ footer {
         width: 1001px;
         margin: 0 auto;
     }
-
     #result #iq-result #iq-container {
         display: grid;
         grid-template-columns: auto auto;
@@ -480,8 +479,22 @@ footer {
         display: grid;
         grid-template-columns: auto auto;
         gap: 60px;
+        width: 1001px;
+        margin: 0 auto;
+    }
+    #result #english-result #english-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 60px;
         width: 1000px;
         margin-left: 0 auto !important;
+    }
+    #result #tech-result #tech-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 60px;
+        width: 1001px;
+        margin: 0 auto;
     }
     #result #tech-result #tech-container {
         display: grid;
