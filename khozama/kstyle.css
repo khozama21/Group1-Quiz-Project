@@ -31,7 +31,12 @@ body {
   color: white;
 
 }
-.validate{
+small{
+  font-size: xx-small;
+
+}
+.validate, .fielderror{
+  font-size: xx-small;
   color: red;
 }
 /* ********************************************************************* */
