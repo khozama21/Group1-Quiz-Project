@@ -5,9 +5,10 @@ document.querySelector('.userlogo').addEventListener('click', function () {
         document.querySelector('.user').classList.add("active")
     } ;
 })
-
+// login related 
 let userName=localStorage.getItem("name");
 document.getElementById("wlcname").innerHTML=userName;
+// *******************
 let button3=document.querySelector("#button3")
 let button2=document.querySelector("#button2")
 let button1=document.querySelector("#button1")

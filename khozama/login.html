@@ -76,7 +76,7 @@ input:invalid{
                             </div>
                              
                             <div class="form-group">
-                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" onclick="lsRememberMe()" />
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
                             <div class="form-group form-button">
@@ -119,7 +119,24 @@ input:invalid{
                 validate[1].innerText = 'Password is incorrect';
 
             }
+
+            
         });
+        
+let rememberMe=document.getElementById("remember-me");
+
+
+function lsRememberMe() {
+  if (rememberMe.checked && Email.value !== "") {
+    localStorage.email = Email.value;
+    localStorage.checkbox = rememberMe.value;
+  } else {
+    sessionStorage.email = Email.value;
+    sessionStorage.checkbox = rememberMe.value;
+  }
+}
+
+
 </script>
  
   </body>
