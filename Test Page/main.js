@@ -1,5 +1,8 @@
 //selectors
 var path=Number(window.localStorage.getItem("myPath"));
+let Rpath1;
+let Rpath2;
+let Rpath3;
 let path1=document.querySelector(".path1");
 let path2=document.querySelector(".path2");
 let path3=document.querySelector(".path3");
@@ -172,6 +175,7 @@ function checkResult(){
         for(i=0;i<questions1.length;i++){
             if(questions1[i].classList.contains("point")){
                 points++;
+                Rpath1=points;
             }
             for(j=0;j<4;j++){
                 if(questions1[i].children[1].children[j].classList.contains("ops")){
@@ -180,11 +184,14 @@ function checkResult(){
                 
             }
         }
+        window.localStorage.setItem("Rpath1",Rpath1);
         
     }else if(path==2){
         for(i=0;i<questions2.length;i++){
             if(questions2[i].classList.contains("point")){
                 points++;
+                Rpath2=points;
+                
             }
             for(j=0;j<4;j++){
                 if(questions2[i].children[1].children[j].classList.contains("ops")){
@@ -193,10 +200,12 @@ function checkResult(){
                 
             }
         }
+        window.localStorage.setItem("Rpath2",Rpath2);
     }else if(path==3){
         for(i=0;i<questions3.length;i++){
             if(questions3[i].classList.contains("point")){
                 points++;
+                Rpath3=points;
             }
             for(j=0;j<4;j++){
                 if(questions3[i].children[1].children[j].classList.contains("ops")){
@@ -205,9 +214,13 @@ function checkResult(){
                 
             }
         }
+        window.localStorage.setItem("Rpath3",Rpath3);
     }
     window.localStorage.setItem("points",points);
     window.localStorage.setItem("wrongAnswers",JSON.stringify(myRAnswers));
+    
+    
+    
 }
 //add events
 onStart()
