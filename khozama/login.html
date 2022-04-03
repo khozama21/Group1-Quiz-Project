@@ -60,15 +60,17 @@ input:invalid{
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign In</h2>
-                        <form method="POST" class="register-form" id="register-form">
+                        <form  method="" class="register-form" id="register-form">
                              
                             <div class="form-group">
                                 <label for="email">  </label>
                                 <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
+                                <div class="validate"> </div>
                             </div>
                             <div class="form-group">
                                 <label for="pass">  </label>
                                 <input type="password" class="form-control" name="pass" id="pass" placeholder="Password"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
+                                <div class="validate"> </div>
                             </div>
                              
                             <div class="form-group">
@@ -76,7 +78,7 @@ input:invalid{
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
                             <div class="form-group form-button">
-                                <button id="signup" class="btn form-submit">Submit</button>
+                                <a href="#" id="btn" class="btn form-submit">Submit</a>
                             </div>
                         </form>
                     </div>
@@ -90,7 +92,29 @@ input:invalid{
         </section>
         </div>
       
+<script>
+    let Email = document.getElementById('email');
+        let Password = document.getElementById('pass');
+        let btn = document.getElementById('btn');
+       
+        let validate = document.querySelectorAll('.validate');
 
+        btn.addEventListener('click', (e) => {
+            let currentemail = Email.value;
+            console.log(currentemail);
+            let currentpassword = Password.value;
+            console.log(currentpassword);
+           
+            
+            if(currentemail === localStorage.getItem('email') && currentpassword === localStorage.getItem('pw')){
+                location.href = "Yousef\Welcome-Page.html";
+                
+                
+            }else{
+                validate[1].innerText = 'Password is incorrect';
+            }
+        });
+</script>
  
   </body>
 </html>

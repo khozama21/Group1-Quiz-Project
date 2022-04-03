@@ -283,6 +283,21 @@ footer {
 
 
 @media screen and (max-width: 479px){
+  .sure{
+    width: 100%;
+    height: 50%;
+    padding: 30px;
+  }
+  .sure .main-text{
+    font-size: .5em;
+  }
+  .sure .choose .yes,.sure .choose .no{
+    font-size: .3em;
+  }
+  
+  .instructions ul li {
+    font-size: .3em;
+  }
   section {
     padding: 10px 50px;
   }
@@ -365,6 +380,38 @@ footer {
   .landing img {
     width: 200px;
   }
+  .sure{
+    width: 100%;
+    height: 50%;
+    padding: 30px;
+  }
+  .sure .main-text{
+    font-size: .7em;
+  }
+  .sure .choose .yes,.sure .choose .no{
+    font-size: .5em;
+  }
+  
+  .instructions ul li {
+    font-size: .5em;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1439px){
+  .sure{
+    width: 100%;
+    height: 50%;
+    padding: 30px;
+  }
+  .sure .main-text{
+    font-size: 1em;
+  }
+  .sure .choose .yes,.sure .choose .no{
+    font-size: .7em;
+  }
+  
+  .instructions ul li {
+    font-size: .7em;
+  }
 }
 .sure{
   z-index: 99;
@@ -374,6 +421,7 @@ footer {
   left: 50%;
   display: none;
   align-items: center;
+  justify-content: space-between;
   flex-direction: column;
   background-color: rgb(181 185 247);
   transform: translate(-50%, -50%);
@@ -386,35 +434,38 @@ footer {
   position: fixed;
 }
 .sure .main-text{
-  margin-top: 10%;
-  margin-bottom: 18%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 .sure .choose{
   display: flex;
   width: 80%;
   align-items: center;
   justify-content: space-around;
+  padding: 5%;
 }
-.sure .choose .yes{
+.sure .choose .yes,.sure .choose .no{
   border: 1px solid white;
   border-radius: 25px;
   padding: 5px 20px;
   cursor: pointer;
   transition: ease 0.3s;
 }
-.sure .choose .yes a{
+.sure .choose .yes a,.sure .choose .no a{
   text-decoration: inherit;
   color: inherit;
-
+}
+.instructions ul{
+  /* font-size: .9em; */
 }
 
-.sure .choose .no{
+/* .sure .choose .no{
   border: 1px solid white;
   border-radius: 25px;
   padding: 5px 20px;
   cursor: pointer;
   transition: ease 0.3s;
-}
+} */
 .sure .choose .yes:hover,
 .sure .choose .no:hover{
 color: #4a54f1;
