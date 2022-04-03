@@ -251,6 +251,30 @@ header {
     transition-timing-function: ease;
 
 }
+.result {
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  margin: 20px auto;
+  /* display: none; */
+}
+.result a {
+  color: var(--mainColor);
+  background-color:var(--mediumColor);
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 800;
+  display: inline-block;
+  padding: 0.9375em 2.1875em;
+  letter-spacing: 1px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition-duration: 0.7s;
+  transition-timing-function: ease;
+}
+.show2 {
+  display: none !important;
+}
 
 .quizzes .main-btn:hover {
   background-color: var(--button-color);
