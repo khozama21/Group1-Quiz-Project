@@ -60,6 +60,15 @@ button1.addEventListener("click",()=>{
             document.querySelector('.result').classList.add("show2")
         } ;
     }
-
+// wrong answers array
+let MyWrongAnswers=[];
+let TempArr=[];
+function myArray(){
+    MyWrongAnswers=JSON.parse(localStorage.getItem("wrongAnswers"))
+    TempArr = JSON.parse(localStorage.getItem("allWrong"));
+    TempArr.push(MyWrongAnswers);
+    localStorage.setItem("allWrong", JSON.stringify(TempArr));
+}
+myArray();
 
 
