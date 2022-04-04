@@ -52,7 +52,7 @@ async function get(){
 get()
 function onStart(){
     if(path==1){
-        startingMinutes=questions1.length/4;
+        startingMinutes=questions1.length/4*3;
         document.querySelector(".path1").classList.add("show");
         document.querySelector(".path2").classList.add("hide");
         document.querySelector(".path3").classList.add("hide");
@@ -70,7 +70,7 @@ questions1[active].classList.remove("hide")
 questions1[active].classList.add("show")
 myAnswer = [].slice.call(questions1[active].children[1].children);
 }else if(path==2){
-    startingMinutes=questions2.length/4;
+    startingMinutes=questions2.length/4*3;
     document.querySelector(".path1").classList.add("hide");
     document.querySelector(".path2").classList.add("show");
     document.querySelector(".path3").classList.add("hide");
@@ -88,7 +88,7 @@ questions2[0].classList.remove("hide")
 questions2[0].classList.add("show")
 myAnswer = [].slice.call(questions2[active].children[1].children);
 }else if(path==3){
-    startingMinutes=questions3.length/4;
+    startingMinutes=questions3.length/4*3;
         document.querySelector(".path1").classList.add("hide");
         document.querySelector(".path2").classList.add("hide");
         document.querySelector(".path3").classList.add("show");
@@ -111,11 +111,12 @@ myAnswer = [].slice.call(questions2[active].children[1].children);
 function addActive(){
 if(path==1 || path==2){
 if(active==4){
-    active=0
+    dots.children[4].classList.add("active-dot")
 }else{active++}}
 if(path==3){
     if(active==9){
-        active=0
+        dots.children[9].classList.add("active-dot")
+        
     }else{active++}
 }
 }
@@ -229,6 +230,7 @@ function checkResult(){
 onStart()
 function myRefresh(){
 myAnswer.forEach(e => e.addEventListener("click",function(){
+    nexButton.classList.add("tick")
     for(i=0;i<myAnswer.length;i++){
         myAnswer[i].classList.remove("colorIt");
         myAnswer[i].classList.remove("selected");
@@ -236,6 +238,7 @@ myAnswer.forEach(e => e.addEventListener("click",function(){
     
     this.classList.add("colorIt")
     this.classList.add("selected")
+    
     dots.children[active].classList.add("answered-dot")
     if(this.classList.contains("rightOne")){
         this.parentElement.parentElement.classList.add("point");
@@ -253,15 +256,27 @@ myAnswer.forEach(e => e.addEventListener("click",function(){
 }
 myRefresh()
 nexButton.addEventListener("click",()=>{
-addActive()
-activePage()
+    if(active>=8 && path==3){
+        nexButton.classList.add("last-answer")
+    }
+    if(active>=3 && path==1){
+        nexButton.classList.add("last-answer")
+    }
+    if(active>=3 && path==2){
+        nexButton.classList.add("last-answer")
+    }
+    addActive()
+    activePage()
+    nexButton.classList.remove("tick")
+    
+
 })
 beforeButton.addEventListener("click",()=>{
     decreaseActive()
     activePage()
     })
     let myLis = [].slice.call(dots.children);
-    myLis.forEach(ele=>ele.addEventListener("click",selectedLi));
+    // myLis.forEach(ele=>ele.addEventListener("click",selectedLi));
 submit.addEventListener("click",()=>{
 sure.classList.add("popme");
 checkResult()
@@ -282,7 +297,7 @@ function updateCounter(){
     }else if(seconds<=9 && minutes>=10){
         timer.innerHTML=`${minutes}:0${seconds}`;
     }
-    if(time<=10){
+    if(time<=20){
         timer.style.color = "#ff4848";
     }
     if(time==0){

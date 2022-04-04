@@ -170,13 +170,15 @@ body{
     font-size: 18px;
     cursor: pointer;
     transition: ease 0.3s;
+    display: none;
 }
 .test-container .content .controls .before:hover{
     color: #4a54f1;
 }
 .test-container .content .controls .after{
     color: #9da3fb;
-    font-size: 18px;
+    font-size: 27px;
+    display: none;
     cursor: pointer;
     transition: ease 0.3s;
 }
@@ -280,6 +282,7 @@ body{
 .show{
     display: flex;
 }
+
 .colorIt{
     box-shadow: 0px 2px 8px 3px #9da3fb !important;
 }
@@ -384,3 +387,9 @@ color: #4a54f1;
     }
 }
 
+.tick{
+    display: block !important;
+}
+.last-answer{
+    display: none !important;
+}
