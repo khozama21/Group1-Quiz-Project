@@ -58,7 +58,7 @@ main === #eaedfe-->
            
         </div>
       </nav> 
-          
+     
       <div class="main">
 
         <!-- Sign up form -->
@@ -88,6 +88,7 @@ main === #eaedfe-->
                             <div class="form-group">
                                 <label for="pass">  </label>
                                 <input type="password" class="form-control" name="pass" id="pass" placeholder="Password"    required/>
+                                <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
                                 <small class="pwhint" class="form-text text-muted"> The password should contain At least 8 characters, uppercase and lowercase letters,numbers,and at least one special character</small>
                                 <div class="fielderror"></div>
                                 <div class="validate"></div>
@@ -99,6 +100,7 @@ main === #eaedfe-->
                             <div class="form-group">
                                 <label for="re-pass"> </label>
                                 <input type="password" class="form-control" name="re_pass" id="re_pass" placeholder="Confirm password"   required />
+                                <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
                                 <div class="validate"></div>
                                 <div class="fielderror"></div>
 
@@ -172,20 +174,15 @@ main === #eaedfe-->
         let pass1 = pass.value;
         let pass2 = repass.value;
 
-        let regpass=/^(?=.*\d.*\d)(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,12}$/;
+        let regpass=/^(?=.*\d.*\d)(?=.*[A-Z])(?=.*[@#$%\^&+=]).{8,12}$/;
         let regemail=/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
         if(checkReqFields()){
-          if(regemail.test(email)){
-            localStorage.setItem("email", email);    
-
-          }
-          else{
-            validate[0].innerText = 'Email is invalid';
-
-          }
+         
             if(regpass.test(pass1) &&pass1 === pass2 ){
                 localStorage.setItem("pw", pass.value);
                 localStorage.setItem("rpw", repass.value);
+                alert("you have successfully signed up");
+
               location.href = "login.html";
 
 
@@ -197,7 +194,14 @@ main === #eaedfe-->
 
             }
             
+            if(regemail.test(email)){
+            localStorage.setItem("email", email);    
 
+          }
+          else{
+            validate[0].innerText = 'Email is invalid';
+
+          }
            }});
 
            
