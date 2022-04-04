@@ -161,6 +161,8 @@ header {
   justify-content: center;
   align-items: center;
   z-index: 1;
+  position: relative;
+  top: -30px;
 }
 .quizzes h2 {
   width: 60%;
