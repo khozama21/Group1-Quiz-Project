@@ -60,6 +60,10 @@ button1.addEventListener("click",()=>{
             document.querySelector('.result').classList.add("show2")
         } ;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 34f384366892232fede5213f47a0a054e0975816
 // wrong answers array
 let MyWrongAnswers=[];
 let TempArr=[];
