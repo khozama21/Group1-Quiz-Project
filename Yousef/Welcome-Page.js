@@ -37,9 +37,6 @@ button1.addEventListener("click",()=>{
     window.localStorage.setItem("myPath",path)
 })
 
-// window.localStorage.setItem("finished1",'finished')
-// window.localStorage.setItem("finished2",'finished')
-// window.localStorage.setItem("finished3",'finished')
 
     if (localStorage.getItem('Rpath1') !== null) {
         buttonDiv1.innerHTML= `<p class="finish">${localStorage.getItem('Rpath1')}/5</p>`;
