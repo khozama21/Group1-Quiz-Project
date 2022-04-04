@@ -530,3 +530,16 @@ footer {
     width: 100%;
   }
 }
+@media(max-width:600px){
+  .logo img {
+    width: 140px;
+}
+header {
+  padding: 10px 30px;
+}
+.nav li {
+  padding-right: 15px;
+  padding-left: 15px;
+  font-size: 1.3em;
+}
+}
