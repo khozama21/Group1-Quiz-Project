@@ -67,7 +67,7 @@ main === #eaedfe-->
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Create A New Account</h2>
-                        <form method="" class="register-form needs-validation" id="register-form">
+                        <form method="post" class="register-form " id="register-form">
                             <div class="form-group">
                                 <label for="name"></label>
                                 <input type="text" class="form-control" name="name" id="name" placeholder="Name" pattern="^[a-zA-Z]+$" required/>
@@ -77,16 +77,22 @@ main === #eaedfe-->
                             </div>
                             <div class="form-group">
                                 <label for="email">  </label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email"  required/>
                                 <div class="fielderror"></div>
+                                <div class="validate"></div>
+
+                                <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
                                  
  
                             </div>
                             <div class="form-group">
                                 <label for="pass">  </label>
-                                <input type="password" class="form-control" name="pass" id="pass" placeholder="Password"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/>
-                                <small id="pwhint" class="form-text text-muted"> The password should contain At least 8 characters, uppercase and lowercase letters,numbers,and at least one special character</small>
+                                <input type="password" class="form-control" name="pass" id="pass" placeholder="Password"    required/>
+                                <small class="pwhint" class="form-text text-muted"> The password should contain At least 8 characters, uppercase and lowercase letters,numbers,and at least one special character</small>
                                 <div class="fielderror"></div>
+                                <div class="validate"></div>
+                                <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$" -->
+
 
                                 
                             </div>
@@ -94,11 +100,13 @@ main === #eaedfe-->
                                 <label for="re-pass"> </label>
                                 <input type="password" class="form-control" name="re_pass" id="re_pass" placeholder="Confirm password"   required />
                                 <div class="validate"></div>
+                                <div class="fielderror"></div>
+
 
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required>
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required/>
+                                <label id="terms" for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                                 <div class="fielderror"></div>
                             </div>
                            
@@ -119,19 +127,21 @@ main === #eaedfe-->
         </div>
          <script>
         let inputname = document.getElementById("name");
-        let email = document.getElementById("email");
+        let email = document.getElementById("email").value;
         let repass = document.getElementById("re_pass");
         let pass = document.getElementById("pass");
         let validate = document.querySelectorAll('.validate');
-        let fielderror=document.querySelectorAll('.fielderror')
+        let fielderror=document.querySelectorAll('.fielderror');
+        let pwhint=document.querySelectorAll('.pwhint');
+
         let pass1 = pass.value;
         let pass2 = repass.value;
         let agree=document.getElementById('agree-term');
 
  function checkReqFields() {
         var returnValue;
-         
-
+        
+        
         returnValue = true;
         if (inputname.value == "") {
           fielderror[0].innerText = 'Field can be left empty';
@@ -142,6 +152,10 @@ main === #eaedfe-->
             returnValue = false;
         } if (pass.value == "") {
           fielderror[2].innerText = 'Field can be left empty';
+          returnValue = false;
+        }
+        if (repass.value == "") {
+          fielderror[3].innerText = 'Field can be left empty';
           returnValue = false;
         }if(!agree.checked){
           fielderror[4].innerText = 'check this box to proceed';
@@ -154,23 +168,37 @@ main === #eaedfe-->
           
         localStorage.setItem("name", inputname.value);
 
-        localStorage.setItem("email", email.value);    
-
+       
         let pass1 = pass.value;
         let pass2 = repass.value;
-        
-            if(pass1 === pass2 && checkReqFields()){
+
+        let regpass=/^(?=.*\d.*\d)(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,12}$/;
+        let regemail=/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+        if(checkReqFields()){
+          if(regemail.test(email)){
+            localStorage.setItem("email", email);    
+
+          }
+          else{
+            validate[0].innerText = 'Email is invalid';
+
+          }
+            if(regpass.test(pass1) &&pass1 === pass2 ){
                 localStorage.setItem("pw", pass.value);
                 localStorage.setItem("rpw", repass.value);
               location.href = "login.html";
 
-            }else{
-              validate[0].innerText = 'Password does not match';
+
         
+            }else{
+              validate[1].innerText = 'Password is invalid,password should contain At least 8 characters, uppercase and lowercase letters,numbers,and at least one special character';
+              validate[2].innerText = 'Password does not match';
+              pwhint[0].innerText="";
+
             }
             
 
-           });
+           }});
 
            
  
