@@ -122,7 +122,7 @@ input:invalid{
                 validate[1].innerText = 'Password is incorrect';
 
             }
-            localStorage.setItem("allWrong","[]");//wrong answers array
+            localStorage.setItem("allWrong","[1]");//wrong answers array
             
         });
         
@@ -133,11 +133,11 @@ function lsRememberMe() {
   if (rememberMe.checked && Email.value !== "") {
     localStorage.email = Email.value;
     localStorage.checkbox = rememberMe.value;
-    localStorage.setItem("allWrong","[]");//wrong answers array
+    localStorage.setItem("allWrong","[1]");//wrong answers array
   } else {
     sessionStorage.email = Email.value;
     sessionStorage.checkbox = rememberMe.value;
-    localStorage.setItem("allWrong","[]");//wrong answers array
+    localStorage.setItem("allWrong","[1]");//wrong answers array
   }
 }
 
