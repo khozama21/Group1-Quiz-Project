@@ -191,18 +191,24 @@ main === #eaedfe-->
 
 
         
+        if(regemail.test(email)){
+          localStorage.setItem("email", email);    
+        }else{
+            validate[0].innerText = 'Email is invalid';
+
+          } 
 
           
         if(checkReqFields()){
-          if(regemail.test(email)){
+         
            
             if(regpass.test(pass1) &&pass1 === pass2 ){
-              localStorage.setItem("email", email);    
+              
                 localStorage.setItem("pw", pass.value);
                 localStorage.setItem("rpw", repass.value);
                 alert("you have successfully signed up");
 
-              location.href = "login.html";
+                location.href = "login.html";
 
 
         
@@ -213,14 +219,11 @@ main === #eaedfe-->
 
             }
           }
-          else{
-            validate[0].innerText = 'Email is invalid';
-
-          } 
+          
            
             
       
-           }
+          
           });
 
            
