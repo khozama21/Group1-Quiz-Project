@@ -62,6 +62,31 @@ button1.addEventListener("click",()=>{
             document.querySelector('.result').classList.add("show2")
         } ;
     }
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+// wrong answers array
+let MyWrongAnswers=[];
+let TempArr=[];
+function myArray(){
+    MyWrongAnswers=JSON.parse(localStorage.getItem("wrongAnswers"));
+
+    TempArr = JSON.parse(localStorage.getItem("allWrong"));
+    
+    TempArr.push(MyWrongAnswers);
+    if(TempArr[TempArr.length-1][1]==TempArr[TempArr.length-2][1]){
+        TempArr.pop()
+    }
+    localStorage.setItem("allWrong", JSON.stringify(TempArr));
+}
+myArray();
+
+
+=======
+=======
+>>>>>>> 6f78279b0b833d3e0aba5195d76f8e5abf866bbe
+>>>>>>> Stashed changes
   
     
     // wrong answers array
@@ -78,4 +103,11 @@ button1.addEventListener("click",()=>{
     
     
    
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> 6f78279b0b833d3e0aba5195d76f8e5abf866bbe
+=======
+>>>>>>> 6f78279b0b833d3e0aba5195d76f8e5abf866bbe
+>>>>>>> Stashed changes
 
