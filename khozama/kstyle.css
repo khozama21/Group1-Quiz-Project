@@ -10,7 +10,10 @@ body {
 
 }
 
+.navbar a{
+  color: #9da3fb;
 
+}
 .navbar {
   background-color: #eaedfe;
 
