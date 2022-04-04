@@ -116,6 +116,7 @@ main === #eaedfe-->
                                 <div class="fielderror"></div>
 
 
+
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required/>
@@ -147,6 +148,8 @@ main === #eaedfe-->
         let validate = document.querySelectorAll('.validate');
         let fielderror=document.querySelectorAll('.fielderror');
         let pwhint=document.querySelectorAll('.pwhint');
+        let nhint=document.querySelectorAll('.nhint');
+
 
         let pass1 = pass.value;
         let pass2 = repass.value;
@@ -214,29 +217,37 @@ main === #eaedfe-->
 
         function validatename()
         {
-        let regname=/[a-zA-Z]/;
+        let regname=/^[a-zA-Z]+$/;
           
-          if(regname.test(name.value)&&(regname.test(lastname.value))){
+          if(regname.test(inputname.value)&&regname.test(lastname.value)){
             localStorage.setItem("name", inputname.value);
         localStorage.setItem("lname", lastname.value);
-          return true;    
-        }else{
+          return true;  
+
+        }else if (!regname.test(inputname.value)){
           nhint[0].innerText="";
+          validate[0].innerText = 'First Name is invalid';
+          document.getElementById("register-form").reset();
+                      return false;
+
+                      
+          }else  if (!regname.test(lastname.value)){
             nhint[1].innerText="";
-            validate[0].innerText = 'Name is invalid';
-            validate[2].innerText = 'Name is invalid';
-           
-
-
             
+            validate[1].innerText = 'Last Name is invalid';
+           
             document.getElementById("register-form").reset();
+          
+
             return false;
           } 
+          document.getElementById("register-form").reset();
+
         }
         
 
           
-        if(checkReqFields()&&validateEmail()){
+        if(checkReqFields()&&validateEmail()&&validatename()){
          
            
             if(regpass.test(pass1) && pass1 === pass2 ){
@@ -254,8 +265,14 @@ main === #eaedfe-->
               validate[3].innerText = 'Password is invalid,password should contain At least 8 characters, uppercase and lowercase letters,numbers,and at least one special character';
               validate[4].innerText = 'Password does not match';
               pwhint[0].innerText="";
+          document.getElementById("register-form").reset();
+         
+
+
 
             }
+          document.getElementById("register-form").reset();
+
           }
           
            

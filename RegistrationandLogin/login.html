@@ -111,16 +111,17 @@ input:invalid{
            
             
             if(currentemail === localStorage.getItem('email') && currentpassword === localStorage.getItem('pw')){
-                location.href = "../Yousef/Welcome-Page.html";
-                // document.getElementById('btn').setAttribute("href","../Yousef/Welcome-Page.html");
+                //location.href = "";
+                 document.getElementById('btn').setAttribute("href","../WelcomePage/Welcome-Page.html");
               
                 
             }else if (currentemail != localStorage.getItem('email')){
                 validate[0].innerHTML="  Email is incorrect"
+                document.getElementById("register-form").reset();
             }
             else{
                 validate[1].innerText = 'Password is incorrect';
-
+                document.getElementById("register-form").reset();
             }
             localStorage.setItem("allWrong","[1]");//wrong answers array
             
