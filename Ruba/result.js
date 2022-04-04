@@ -1,6 +1,6 @@
-let a = (window.localStorage.getItem("wrongAnswers"))
-console.log(JSON.parse(a))
+let a = (JSON.parse(window.localStorage.getItem("allWrong")))
 
-for(let i=0; i<a.length; i++){
 
+for(let i=1; i<a.length; i++){
+console.log(a[i])
 }
