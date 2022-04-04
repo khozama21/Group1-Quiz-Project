@@ -46,6 +46,7 @@ header {
   font-size: 3.5em;
   /* font-family: "Dancing Script", cursive; */
 }
+
 .navbar {
   position: relative;
 }
@@ -129,7 +130,7 @@ header {
 }
 .landing-content {
   width: 100%;
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
