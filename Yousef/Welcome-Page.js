@@ -7,7 +7,9 @@ document.querySelector('.userlogo').addEventListener('click', function () {
 })
 
 let userName=localStorage.getItem("name");
-document.getElementById("wlcname").innerHTML=userName;
+let lastName=localStorage.getItem("lname");
+
+document.getElementById("wlcname").innerHTML=userName+" "+lastName;
 
 let button3=document.querySelector("#button3")
 let button2=document.querySelector("#button2")

@@ -70,11 +70,20 @@ main === #eaedfe-->
                         <form method="post" class="register-form " id="register-form">
                             <div class="form-group">
                                 <label for="name"></label>
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name" pattern="^[a-zA-Z]+$" required/>
+                                <input type="text" class="form-control" name="name" id="name" placeholder=" First Name" pattern="^[a-zA-Z]+$" required/>
                                 <small id="namehint" class="form-text text-muted">your name should only contain alphabatical characters</small>
                                 <div class="fielderror"></div>
                                  
                             </div>
+
+                            <div class="form-group">
+                              <label for="lname"></label>
+                              <input type="text" class="form-control" name="name" id="lname" placeholder="Last Name" pattern="^[a-zA-Z]+$" required/>
+                              <small id="namehint" class="form-text text-muted">your name should only contain alphabatical characters</small>
+                              <!-- <div class="fielderror"></div> -->
+                               
+                          </div>
+
                             <div class="form-group">
                                 <label for="email">  </label>
                                 <input type="email" class="form-control" name="email" id="email" placeholder="Email"  required/>
@@ -129,6 +138,7 @@ main === #eaedfe-->
         </div>
          <script>
         let inputname = document.getElementById("name");
+        let lastname = document.getElementById("lname");
         let email = document.getElementById("email").value;
         let repass = document.getElementById("re_pass");
         let pass = document.getElementById("pass");
@@ -169,6 +179,8 @@ main === #eaedfe-->
         document.getElementById("btn").addEventListener('click',function(){
           
         localStorage.setItem("name", inputname.value);
+        localStorage.setItem("lname", lastname.value);
+
 
        
         let pass1 = pass.value;
