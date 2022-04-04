@@ -170,9 +170,6 @@ function selectedLi(){
     active=myLis.indexOf(this)
     activePage()
 }
-function onSubmit(){
-
-}
 function checkResult(){
     points=0;
     myRAnswers=[]
@@ -290,7 +287,7 @@ function updateCounter(){
     }
     if(time==0){
         checkResult()
-        location.href="../Yousef/Welcome-Page.html";
+        location.href="../WelcomePage/Welcome-Page.html";
     }
     time--;
 }
