@@ -41,9 +41,6 @@ button1.addEventListener("click",()=>{
     window.localStorage.setItem("myPath",path)
 })
 
-// window.localStorage.setItem("finished1",'finished')
-// window.localStorage.setItem("finished2",'finished')
-// window.localStorage.setItem("finished3",'finished')
 
     // To show the rest result
     if (localStorage.getItem('Rpath1') !== null) {
