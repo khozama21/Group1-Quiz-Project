@@ -296,12 +296,10 @@ footer {
 #result #tech-result #tech-container .tech-quistion .tech-answers {
     border-radius: 5px;
     margin-top: 5px;
-    
     font-size: 17px;
     height: 40px;
     width: 430px;
     padding-top: 10px;
-    padding-bottom: 15px;
     padding-left: 10px;
     background-color: #eaedfe;
 }
