@@ -1,5 +1,6 @@
 /* BODY */
 body {
+    margin: 0;
     font-family: 'Heebo', sans-serif, Arial;
     background-color: #eaedfe;
 }
@@ -147,7 +148,7 @@ footer {
     #markdiv {
         width: 300px;
         height: 300px;
-        margin-left: 1px;
+        margin-left:10px;
     }
 
     #markdiv #markimg {

@@ -128,32 +128,13 @@ nav{
 }
 
 
-/* Footer */
-footer {
-    background-color: #292b2c;
-    color: #f7f7f7;
-    padding: 1em;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    
-  }
-  .footer-text {
-    font-size: 1.3em;
-    font-weight: 600;
-  }
-  .footer-text span {
-    color:#9da3fb;
-  }
-  /* End of Footer */
+ 
 
 /* Footer */
 footer {
     background-color: #292b2c;
     color: #f7f7f7;
-    padding: 1em;
+    padding: 1.55em;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
